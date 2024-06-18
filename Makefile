@@ -26,5 +26,9 @@ clean:
 			$(MAKE) -C $$dir clean; \
 	done
 
+# 通过git clean -xdf -n 查看构建了哪些_可执行文件
+show:
+	-@git clean -xdf -n
+
 # 定义伪目标,防止 make 时没有指定目标而报错
-.PHONY: all clean $(SUBDIRS)
+.PHONY: all clean $(SUBDIRS) show
