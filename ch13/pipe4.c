@@ -7,9 +7,9 @@
 
 int main(int argc, char *argv[])
 {
-    int data_processed;
+    int  data_processed;
     char buffer[BUFSIZ + 1];
-    int file_descriptor;
+    int  file_descriptor;
 
     memset(buffer, '\0', sizeof(buffer));
     sscanf(argv[1], "%d", &file_descriptor);

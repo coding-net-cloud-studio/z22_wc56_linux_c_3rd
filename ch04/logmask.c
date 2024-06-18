@@ -15,24 +15,24 @@
 
 int main()
 {
-  // 定义日志掩码变量
-  int logmask;
+    // 定义日志掩码变量
+    int logmask;
 
-  // 使用指定的选项和设施打开系统日志
-  openlog("logmask", LOG_PID | LOG_CONS, LOG_USER);
+    // 使用指定的选项和设施打开系统日志
+    openlog("logmask", LOG_PID | LOG_CONS, LOG_USER);
 
-  // 记录一条信息级别的日志,包含进程ID
-  syslog(LOG_INFO, "informative message, pid = %d", getpid());
+    // 记录一条信息级别的日志,包含进程ID
+    syslog(LOG_INFO, "informative message, pid = %d", getpid());
 
-  // 记录一条调试级别的日志,这条日志应该显示
-  syslog(LOG_DEBUG, "debug message, should appear");
+    // 记录一条调试级别的日志,这条日志应该显示
+    syslog(LOG_DEBUG, "debug message, should appear");
 
-  // 设置日志掩码,只允许记录通知级别及以上的日志
-  logmask = setlogmask(LOG_UPTO(LOG_NOTICE));
+    // 设置日志掩码,只允许记录通知级别及以上的日志
+    logmask = setlogmask(LOG_UPTO(LOG_NOTICE));
 
-  // 尝试记录一条调试级别的日志,这条日志不应该显示
-  syslog(LOG_DEBUG, "debug message, should not appear");
+    // 尝试记录一条调试级别的日志,这条日志不应该显示
+    syslog(LOG_DEBUG, "debug message, should not appear");
 
-  // 退出程序
-  exit(0);
+    // 退出程序
+    exit(0);
 }

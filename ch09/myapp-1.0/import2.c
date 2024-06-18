@@ -12,4 +12,3 @@ int main()
     printf("This is an extra line added later\n");
     exit(EXIT_SUCCESS);
 }
- 

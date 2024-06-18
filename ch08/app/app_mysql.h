@@ -1,24 +1,24 @@
 /* 当前CD的简化结构,不包括曲目信息 */
 struct current_cd_st
 {
-  int artist_id;         // 艺术家ID
-  int cd_id;             // CD ID
-  char artist_name[100]; // 艺术家姓名
-  char title[100];       // CD标题
-  char catalogue[100];   // CD目录号
+    int  artist_id;         // 艺术家ID
+    int  cd_id;             // CD ID
+    char artist_name[100];  // 艺术家姓名
+    char title[100];        // CD标题
+    char catalogue[100];    // CD目录号
 };
 
 /* 简化的曲目详情结构 */
 struct current_tracks_st
 {
-  int cd_id;           // CD ID
-  char track[20][100]; // 曲目名称数组
+    int  cd_id;           // CD ID
+    char track[20][100];  // 曲目名称数组
 };
 
-#define MAX_CD_RESULT 10 // 最大搜索结果数量
+#define MAX_CD_RESULT 10  // 最大搜索结果数量
 struct cd_search_st
 {
-  int cd_id[MAX_CD_RESULT]; // 存储搜索结果的CD ID数组
+    int cd_id[MAX_CD_RESULT];  // 存储搜索结果的CD ID数组
 };
 
 /* 数据库后端函数 */

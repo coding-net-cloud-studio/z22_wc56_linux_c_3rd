@@ -22,10 +22,10 @@
 // 定义信号处理函数ouch,当接收到SIGINT信号时会被调用
 void ouch(int sig)
 {
-  // 打印接收到的信号值
-  printf("OUCH! - 我收到了信号 %d\n", sig);
-  // 将SIGINT信号的处理方式重置为默认处理方式
-  (void)signal(SIGINT, SIG_DFL);
+    // 打印接收到的信号值
+    printf("OUCH! - 我收到了信号 %d\n", sig);
+    // 将SIGINT信号的处理方式重置为默认处理方式
+    (void)signal(SIGINT, SIG_DFL);
 }
 
 /*  主函数必须拦截SIGINT信号,当我们按下Ctrl-C时生成.
@@ -38,15 +38,15 @@ void ouch(int sig)
 
 int main()
 {
-  // 使用signal函数注册信号处理函数ouch,当SIGINT信号发生时调用该函数
-  (void)signal(SIGINT, ouch);
+    // 使用signal函数注册信号处理函数ouch,当SIGINT信号发生时调用该函数
+    (void)signal(SIGINT, ouch);
 
-  // 无限循环打印"Hello World!"
-  while (1)
-  {
-    // 打印"Hello World!"并换行
-    printf("Hello World!\n");
-    // 等待1秒
-    sleep(1);
-  }
+    // 无限循环打印"Hello World!"
+    while (1)
+    {
+        // 打印"Hello World!"并换行
+        printf("Hello World!\n");
+        // 等待1秒
+        sleep(1);
+    }
 }

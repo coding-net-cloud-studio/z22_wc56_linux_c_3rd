@@ -6,9 +6,9 @@
 // 主函数,程序的入口点
 int main()
 {
-  // 调用bill函数,传入字符串"Hello World"作为参数
-  // 假设bill函数是用来打印传入的字符串
-  bill("Hello World");
-  // 程序执行完毕后,以状态码0退出,表示正常退出
-  exit(0);
+    // 调用bill函数,传入字符串"Hello World"作为参数
+    // 假设bill函数是用来打印传入的字符串
+    bill("Hello World");
+    // 程序执行完毕后,以状态码0退出,表示正常退出
+    exit(0);
 }

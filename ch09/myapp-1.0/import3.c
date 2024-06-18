@@ -17,4 +17,3 @@ int main()
     printf("This file is under RCS control.  Its ID is \n%s\n", RCSinfo);
     exit(EXIT_SUCCESS);
 }
- 
