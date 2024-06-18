@@ -268,5 +268,9 @@
         "ch15/server3": true,
         "ch15/server4": true,
         "ch15/server5": true,
-      }
+    },
+    "files.associations": {
+        "string.h": "c",
+        "stdio.h": "c"
+    }
 }
