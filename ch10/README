@@ -1,3 +1,24 @@
+
+第10章 - 调试
+
+debug1.c  -  一个有错误的冒泡排序程序.
+
+debug2.c  -  相同的程序,但增加了额外的调试代码.
+
+debug3.c  -  相同的程序,但错误被放大.
+
+cinfo.c   -  一个可以打印其编译日期和时间的程序.
+
+debug4.c  -  冒泡排序程序中的一个错误已修复.
+
+assert.c  -  一个演示断言宏的程序.
+
+efence.c  -  一个滥用内存以测试Electric Fence库的程序.
+
+checker.c -  一个测试Valgrind内存调试器的程序.
+
+
+
 Chapter 10 - Debugging.
 
 
@@ -13,6 +34,6 @@ debug4.c  -  The bubble sort program with one of its bugs fixed.
 
 assert.c  -  A program that demonstrates the assert macro.
 
-efence.c  -  A program which abuses memory to test the Electric Fence library. 
+efence.c  -  A program which abuses memory to test the Electric Fence library.
 
 checker.c -  A program to test the valgrind memory debugger.
