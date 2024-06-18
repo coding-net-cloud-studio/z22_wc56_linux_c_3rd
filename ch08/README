@@ -1,0 +1,51 @@
+Chapter 8 - MySQL
+
+第八章 - MySQL
+
+connect1.c - 连接到MySQL数据库的程序
+
+connect2.c - 使用MySQL连接的程序
+
+select1.c - 使用mysql_store_result的程序
+
+select2.c - 使用mysql_use_result的程序
+
+select3.c - 显示获取的数据的程序
+
+select4.c - 显示获取的列详细信息的程序
+
+insert1.c - 插入数据的程序
+
+insert2.c - 报告插入数据的程序
+
+update1.c - 更新数据的程序
+
+您可能需要调整Makefile中的编译行,不同的发行版需要稍微不同的编译选项,并且似乎每个版本都会有所变化.
+
+特别是有些系统可能需要修改-L/usr/lib/mysql,以及一些系统可能需要更改包含目录以找到包含文件.
+
+
+
+
+connect1.c  - A program that connects to a MySQL database
+
+connect2.c  - A program that uses a MySQL connection
+
+select1.c  - A program that uses mysql_store_result
+
+select2.c  - A program that uses mysql_use_result
+
+select3.c  - A program that displays fetched data
+
+select4.c  - A program that displays fetched column details
+
+insert1.c  - A program that inserts data
+
+insert2.c  - A program that reports on data inserted
+
+update1.c  - A program that updates data
+
+You may have to adjust the compile line in the Makefile, different distributions need slightly different compile options, and it seems to change with each release.
+
+In particular some systems may need -L/usr/lib/mysql modifying, and some may need the include directory changing to find include files.
+

@@ -1,0 +1,20 @@
+#!/bin/sh
+# 上面的行是脚本的shebang,它指定了解释和执行脚本的程序,这里是Bourne shell或兼容的shell.
+
+# 定义一个名为foo的函数
+foo() {
+    # 函数内部输出提示信息
+    echo "Function foo is executing"
+}
+
+# 脚本开始执行时输出提示
+echo "script starting"
+
+# 调用前面定义的foo函数
+foo
+
+# 函数调用后输出提示,表示脚本即将结束
+echo "script ended"
+
+# 退出脚本并返回状态码0,表示成功执行
+exit 0

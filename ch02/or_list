@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# 删除文件file_one,如果文件存在的话
+rm -f file_one
+
+# 检查文件file_one是否存在,或者执行echo命令
+# 如果文件不存在,则两个echo命令会被执行
+if [ -f file_one ] || echo "hello" || echo "there"
+then
+    # 如果上述条件中任意一个为真(文件存在或任一echo成功执行),则进入if分支
+    echo "in if"
+else
+    # 否则进入else分支
+    echo "in else"
+fi
+
+# 退出脚本并返回状态码0,表示成功执行
+exit 0

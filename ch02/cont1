@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# 删除所有以fred开头的文件和目录
+rm -rf fred*
+
+# 创建四个新的文件,其中两个是普通文件,一个是目录,一个将作为普通文件创建但会被覆盖
+echo > fred1 # 创建一个名为fred1的文件
+echo > fred2 # 创建一个名为fred2的文件
+mkdir fred3 # 创建一个名为fred3的目录
+echo > fred4 # 创建一个名为fred4的文件,会覆盖之前可能存在的同名文件
+
+# 遍历所有以fred开头的文件
+for file in fred*
+do
+  # 检查当前项是否是一个目录
+  if [ -d "$file" ]; then
+    # 如果是目录,则打印跳过信息并继续下一次循环
+    echo "跳过目录 $file"
+    continue
+  fi
+  # 如果不是目录,打印文件名
+  echo 文件是 $file
+done
+
+# 再次删除所有以fred开头的文件和目录
+rm -rf fred*
+
+# 脚本正常退出
+exit 0

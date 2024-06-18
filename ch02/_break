@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# 删除所有以fred开头的文件或目录
+rm -rf fred*
+
+# 创建新的文件
+echo > fred1
+echo > fred2
+
+# 创建新的目录
+mkdir fred3
+
+# 创建另一个新的文件
+echo > fred4
+
+# 遍历所有以fred开头的文件或目录
+for file in fred*
+do
+  # 如果当前项是一个目录，则中断循环
+  if [ -d "$file" ]; then
+    break;
+  fi
+done
+
+# 输出第一个遇到的fred目录
+echo 第一个目录fred是 $file
+
+# 再次删除所有以fred开头的文件或目录
+rm -rf fred*
+
+# 退出脚本
+exit 0

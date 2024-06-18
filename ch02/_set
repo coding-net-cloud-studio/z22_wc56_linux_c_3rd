@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# 输出当前日期
+echo "The date is $(date)"
+
+# 使用 set 命令将 date 命令的输出设置为环境变量
+set $(date)
+
+# 输出月份，因为 date 命令的输出格式通常是星期、月、日...，所以 $2 表示第二项，即月份
+echo "The month is $2"
+
+# 退出脚本
+exit 0

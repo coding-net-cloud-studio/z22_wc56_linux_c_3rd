@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# 定义一个变量foo并赋值为"Hello World"
+foo="Hello World"
+
+# 输出变量foo的值
+echo $foo
+
+# 删除变量foo
+unset foo
+
+# 再次输出变量foo的值,此时应该为空
+echo $foo

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# 输出变量foo的值
+echo "$foo"
+# 输出变量bar的值
+echo "$bar"

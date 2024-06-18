@@ -1,0 +1,40 @@
+#!/bin/sh
+# Ask some questions and collect the answer
+
+#!/bin/bash
+# 使用gdialog创建一个简单的问卷程序
+
+# 显示欢迎信息
+gdialog --title "问卷" --msgbox "欢迎参加我的简单调查" 9 18
+
+# 确认用户是否愿意参加调查
+gdialog --title "确认" --yesno "您愿意参加吗?" 9 18
+# 如果用户选择否,显示感谢信息并退出
+if [ $? != 0 ]; then
+    gdialog --infobox "谢谢您的参与" 5 20
+    sleep 2
+    gdialog --clear
+    exit 0
+fi
+
+# 获取用户的姓名
+gdialog --title "问卷" --inputbox "请输入您的名字" 9 30 2>_1.txt
+# 从文件中读取用户输入的名字
+Q_NAME=$(cat _1.txt)
+
+# 提供音乐喜好的菜单选项
+gdialog --menu "$Q_NAME,您最喜欢哪种音乐?" 15 30 4 1 "古典" 2 "爵士" 3 "乡村" 4 "其他" 2>_1.txt
+# 从文件中读取用户选择的菜单项
+Q_MUSIC=$(cat _1.txt)
+
+# 根据用户的音乐喜好显示不同的消息
+if [ "$Q_MUSIC" = "1" ]; then
+    gdialog --title "喜欢古典" --msgbox "好选择!" 12 25
+else
+    gdialog --title "不喜欢古典" --msgbox "真遗憾" 12 25
+fi
+
+# 等待2秒后清除对话框并退出程序
+sleep 2
+gdialog --clear
+exit 0

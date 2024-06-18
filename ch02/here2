@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# 使用ed编辑器编辑文本文件
+ed textfile <<!FunkyStuff!
+# 删除第三行
+3
+d
+# 将文件中剩余的行中的'is'替换为'was'
+.,\$s/is/was/
+# 保存更改并退出编辑器
+w
+q
+!FunkyStuff!
+
+# 脚本正常退出
+exit 0

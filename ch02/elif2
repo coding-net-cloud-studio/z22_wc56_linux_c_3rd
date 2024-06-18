@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# 询问用户是否是早上
+echo "现在是早晨吗?请回答是或否"
+# 读取用户的输入
+read timeofday
+
+# 检查用户是否回答是
+if [ "$timeofday" = "是" ]
+then
+  # 如果是,打印问候语
+  echo "早上好"
+# 检查用户是否回答否
+elif [ "$timeofday" = "否" ]; then
+  # 如果不是,打印另一个问候语
+  echo "下午好"
+else
+  # 如果用户没有回答是或否,打印错误信息并退出程序
+  echo "对不起,$timeofday 无法识别.请输入是或否"
+  exit 1
+fi
+
+# 程序正常结束
+exit 0

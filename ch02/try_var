@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# 定义一个变量 salutation 并赋值为 "Hello"
+salutation="Hello"
+
+# 输出 salutation 变量的值
+echo $salutation
+
+# 输出当前脚本的名称和正在运行的状态
+echo "The program $0 is now running"
+
+# 输出传递给脚本的第二个参数(如果有的话)
+echo "The second parameter was $2"
+
+# 输出传递给脚本的第一个参数(如果有的话)
+echo "The first parameter was $1"
+
+# 输出所有传递给脚本的参数列表
+echo "The parameter list was $*"
+
+# 输出用户的主目录路径
+echo "The user's home directory is $HOME"
+
+# 提示用户输入一个新的问候语
+echo "Please enter a new greeting"
+
+# 读取用户输入的新问候语并存储到 salutation 变量中
+read salutation
+
+# 输出用户输入的新问候语
+echo $salutation
+
+# 输出脚本即将完成的信息
+echo "The script is now complete"
+
+# 退出脚本并返回状态码 0 表示成功执行
+exit 0

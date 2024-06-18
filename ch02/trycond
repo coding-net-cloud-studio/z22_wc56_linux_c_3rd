@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# 检查 /bin/bash 是否为一个存在的文件
+if [ -f /bin/bash ]
+then
+    echo "文件 /bin/bash 存在"
+fi
+
+# 检查 /bin/bash 是否为一个目录
+# 如果 /bin/bash 不是目录,则输出它不是目录的信息
+if [ -d /bin/bash ]
+then
+    echo "/bin/bash 是一个目录"
+else
+    echo "/bin/bash 不是一个目录"
+fi

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# 定义一个变量 foo 并初始化为 1
+foo=1
+
+# 使用 while 循环,条件是 foo 的值小于等于 20
+while [ "$foo" -le 20 ]
+do
+  # 在每次循环中打印消息 "Here we go again"
+  echo "Here we go again"
+  # 将 foo 的值增加 1
+  foo=$(($foo+1))
+done
+
+# 退出脚本并返回状态码 0,表示成功执行
+exit 0

@@ -1,0 +1,40 @@
+#!/bin/sh
+# Ask some questions and collect the answer
+
+# 上面的行是脚本的 shebang,它告诉操作系统使用哪个解释器执行此脚本.在这里,我们使用了 /bin/bash.
+
+# 使用 dialog 命令创建一个带有标题 "Questionnaire" 的消息框,显示欢迎信息
+dialog --title "问卷" --msgbox "欢迎参加我的简单调查" 9 18
+
+# 再次使用 dialog 命令询问用户是否愿意参加调查,用户可以选择是或否
+dialog --title "确认" --yesno "您愿意参加吗?" 9 18
+# 如果用户选择"否",则显示感谢信息并退出程序
+if [ $? != 0 ]; then
+    dialog --infobox "谢谢您的参与" 5 20
+    sleep 2 # 等待2秒
+    dialog --clear # 清除对话框
+    exit 0 # 退出程序
+fi
+
+# 使用 dialog 命令要求用户输入他们的名字,并将响应保存到文件 _1.txt 中
+dialog --title "问卷" --inputbox "请输入您的名字" 9 30 2>_1.txt
+# 从文件 _1.txt 中读取用户输入的名字,并将其存储在变量 Q_NAME 中
+Q_NAME=$(cat _1.txt)
+
+# 使用 dialog 命令为用户提供一个菜单来选择他们最喜欢的音乐类型
+dialog --menu "$Q_NAME,您最喜欢哪种音乐?" 15 30 4 1 "古典" 2 "爵士" 3 "乡村" 4 "其他" 2>_1.txt
+# 从文件 _1.txt 中读取用户的选择,并将其存储在变量 Q_MUSIC 中
+Q_MUSIC=$(cat _1.txt)
+
+# 根据用户的音乐选择显示不同的消息框
+if [ "$Q_MUSIC" = "1" ]; then
+    dialog --title "喜欢古典" --msgbox "好选择!" 12 25
+else
+    dialog --title "不喜欢古典" --msgbox "遗憾" 12 25
+fi
+
+# 等待2秒后清除对话框并退出程序
+sleep 2
+dialog --clear
+exit 0
+

@@ -1,0 +1,54 @@
+第11章  -  进程和信号.
+
+system1.c   -  一个使用system命令调用另一个程序的程序.
+
+system2.c   -  system1.c修订版,使得另一个程序在后台运行.
+
+pexec.c    -  一个使用execlp命令替换进程映像的程序.
+
+fork1.c     -  一个使用fork命令复制进程映像的程序.
+
+wait.c     -  一个使用wait命令等待子进程完成的程序.
+
+fork2.c    -  fork1.c更改,使得产生一个僵尸进程.
+
+upper.c    -  一个将所有字符转换为大写的简单程序.
+
+file.txt   -  一个用于与upper.c一起使用的简短文本文件.
+
+useupper.c -  一个演示open文件描述符在调用execl后被保留的程序.
+
+ctrlc1.c    -  一个简单的信号处理程序,对SIGINT做出反应.
+
+alarm.c    -  一个向自己发送信号的程序.
+
+ctrlc2.c   -  一个使用sigaction而不是signal的信号处理程序.
+
+
+
+Chapter 11  -  Processes and Signals.
+
+
+system1.c   -  A program that calls another program using the system command.
+
+system2.c   -  system1.c revised so that the other program is run in the background.
+
+pexec.c    -  A program that replaces a process image using the execlp command.
+
+fork1.c     -  A program that duplicates a process image using the fork command.
+
+wait.c     -  A program that uses the wait command to wait for a child process to finish.
+
+fork2.c    -  fork1.c changed so thata zombie process is created.
+
+upper.c    -  A simple program to convert all characters to upper case.
+
+file.txt   -  A short text file for use with upper.c.
+
+useupper.c -  A program that demonstrates that open file descriptors are preserved across a call to execl.
+
+ctrlc1.c    -  A simple signal handling program which reacts to SIGINT.
+
+alarm.c    -  A program which sends a signal to itself.
+
+ctrlc2.c   -  A signal handling progam that uses sigaction rather than signal.

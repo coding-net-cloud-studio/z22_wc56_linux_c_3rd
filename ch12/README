@@ -1,0 +1,46 @@
+
+ POSIX线程.
+
+在大多数最近的Linux发行版上,标准Makefile应该可以成功编译这些程序.备选的makefile-explicit提供给任何需要明确定义包含和线程库路径的系统.
+
+thread1.c  -  一个使用线程的简单程序.
+
+thread2.c  -  一个同时执行2个线程的程序.您可能需要等待几秒钟才能看到此程序的输出.
+
+thread3.c  -  一个使用信号量的程序,用于同步线程.
+
+thread3a.c  -  thread3.c的修改版本.
+
+thread4.c  -  一个使用互斥锁的程序,用于同步线程.
+
+thread5.c  -  一个设置线程分离状态属性的程序.
+
+以下程序可能无法在较旧的Linux发行版上编译.
+
+thread6.c, thread7, thread7a.c  -  设置线程调度属性的程序.
+
+thread8.c, thread8a.c  -  创建许多线程的两个程序,a版本修正了一个微妙的竞态条件.
+
+POSIX Threads.
+
+On most recent Linux distributions the standard Makefile should compile these rpograms sucessfully. The alternative, makefile-explicit, is provided for any systems that need the include and thread library paths explicity defining.
+
+thread1.c  -  a simple program using threads.
+
+thread2.c  -  a program that executes 2 threads simultaneously.  You may have to wait a few seconds before
+this program produces output.
+
+thread3.c  -  a program that synchronizes threads using seamphores.
+
+thread3a.c  -  a modified version of thread3.c.
+
+thread4.c  -  a program that synchronizes threads using mutexes.
+
+thread5.c  -  a program that sets a thread's detached state attribute.
+
+The remaining programs may not compile on older Linux distros.
+
+thread6.c, thread7, thread7a.c  -  programs that set a thread's scheduling attribute.
+
+
+thread8.c, thread8a.c  -  two programs that create many threads, the a version corrects a subtle race condition.

@@ -1,0 +1,11 @@
+#!/bin/sh
+# 上面的行是脚本的 shebang,它指定了解释和执行脚本的程序,这里是 Bourne shell 或其兼容版本.
+
+version=classic
+# 这行代码定义了一个名为 version 的变量,其值为 'classic'.
+
+PATH=/usr/local/old_bin:/usr/bin:/bin:.
+# 这行代码设置了环境变量 PATH,它指定了 shell 在查找可执行文件时会搜索的目录列表.
+
+PS1="classic> "
+# 这行代码设置了 shell 提示符(PS1),它会在每次等待用户输入时显示.这里的提示符是 'classic> '.

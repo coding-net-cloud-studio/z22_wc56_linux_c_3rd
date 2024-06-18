@@ -1,0 +1,54 @@
+Curses:
+
+编译时,只需输入 'make'.
+
+如果你遇到头文件未找到的问题,可能需要指定额外的包含路径 -I,像这样:
+
+cc -o XXXXX XXXXX.c -I/usr/include/ncurses -lncurses
+
+screen1.c        - 一个程序,在终端窗口中打印 "Hello World".
+
+moveadd.c      -  一个程序,动态打印莎士比亚的<苏格兰悲剧>中的名言.
+
+ipmode.c         -  一个非常简单的密码程序,显示键盘模式.
+
+multiw1.c        -  一个程序,显示多个窗口,刷新窗口并将它们置于顶层.
+
+subscl.c         -  一个程序,显示子窗口并获取滚动文本.
+
+keypad.c         -  一个程序,响应键盘输入.
+
+color.c          -  一个程序,找出用户终端的颜色对.
+
+pad.c            -  一个程序,从大于终端窗口的 pad 结构中提取文本.
+
+app/curses_app.c - 这个程序重新实现了 CD 标题数据库应用程序
+
+
+Curses:
+
+To compile, just type 'make'.
+
+If you get problems with the header files not being found, you may need
+to specify an additional include path with -I, like this:
+
+cc -o XXXXX XXXXX.c -I/usr/include/ncurses -lncurses
+
+
+screen1.c        - A program that prints "Hello World" just where you want it.
+
+moveadd.c      -  A program that prints dynamic quotes from Shakespeare's Scottish play.
+
+ipmode.c         -  A very simple password program that shows keyboard modes.
+
+multiw1.c        -  A program that displays multiple windows, refreshes windows and brings them to the top.
+
+subscl.c         -  A program that displays subwindows and gets text to scroll.
+
+keypad.c         -  A program that responds to keystrokes.
+
+color.c          -  A program that finds out the color pairs for the user's terminal.
+
+pad.c            -  A program that extracts text from a pad structure that is larger than the terminal window.
+
+app/curses_app.c - This program re-implements the CD Title database application

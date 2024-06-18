@@ -1,0 +1,30 @@
+#!/bin/sh
+# 上面的行是脚本的 shebang,它告诉操作系统使用哪个解释器来执行此脚本.在这里,我们使用了 /bin/sh.
+
+# 提示用户输入是否是早上
+echo "Is it morning? Please answer yes or no"
+# 读取用户的输入并存储在变量 timeofday 中
+read timeofday
+
+# 使用 case 语句根据用户的输入进行条件判断
+case "$timeofday" in
+    # 如果用户输入的是 'yes','y','Yes' 或 'YES'(不区分大小写),则输出 "Good Morning"
+    yes | y | Yes | YES | 是 )
+           echo "Good Morning"
+           # 继续提示用户
+           echo "Up bright and early this morning?"
+           ;;
+    # 如果用户输入以 'n' 或 'N' 开头,则输出 "Good Afternoon"
+    [nN]* | 否 | 不是 )
+           echo "Good Afternoon"
+           ;;
+    # 如果用户输入既不是 'yes' 也不是以 'n' 开头的其他任何内容,则输出错误信息并退出脚本
+    * )
+           echo "Sorry, answer not recognised"
+           echo "Please answer yes or no"
+           exit 1
+           ;;
+esac
+
+# 脚本正常结束
+exit 0

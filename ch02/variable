@@ -1,0 +1,23 @@
+#!/bin/sh
+# 声明一个名为myvar的变量,并赋值为"Hi there"
+myvar="Hi there"
+
+# 输出变量myvar的值,$符号用于变量替换
+echo $myvar
+# 输出变量myvar的值,双引号内的变量会被替换
+echo "$myvar"
+# 输出字符串'$myvar',单引号内的内容会被当作字面量处理,不会进行变量替换
+echo '$myvar'
+# 输出字符串\$myvar,反斜杠用于转义,因此输出会包含$符号
+echo \$myvar
+
+# 提示用户输入文本
+echo Enter some text
+# 读取用户输入的文本到变量myvar中
+read myvar
+
+# 输出字符串'$myvar'和变量myvar的新值,展示变量替换
+echo '$myvar' now equals $myvar
+
+# 退出脚本,返回状态码0表示成功执行
+exit 0

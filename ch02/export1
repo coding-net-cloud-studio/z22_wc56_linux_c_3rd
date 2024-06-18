@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# 定义第一个元编程变量
+foo="The first meta-syntactic variable"
+
+# 导出第二个元编程变量到环境变量
+export bar="The second meta-syntactic variable"
+
+# 执行名为export2的脚本文件
+./export2

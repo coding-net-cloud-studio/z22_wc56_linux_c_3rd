@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# 创建一个名为file_one的文件
+touch file_one
+# 删除一个名为file_two的文件
+rm -f file_two
+
+# 如果file_one存在，则输出hello，如果file_two也存在，则输出there
+if [ -f file_one ] && echo "hello" && [ -f file_two ] && echo "there"
+then
+    echo "in if"
+else
+    echo "in else"
+fi
+
+# 退出程序
+exit 0

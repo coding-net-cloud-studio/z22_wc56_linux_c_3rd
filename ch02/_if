@@ -1,0 +1,19 @@
+#!/bin/sh
+# 上面的行是脚本的 shebang，它告诉操作系统使用哪个解释器执行此脚本。在这里，我们使用了 /bin/sh。
+
+# 提示用户输入是否是早上
+echo "Is it morning? Please answer yes or no"
+# 读取用户的输入并存储在变量 timeofday 中
+read timeofday
+
+# 使用 if 语句检查用户输入是否为 "yes"
+if [ $timeofday = "yes" ]; then
+  # 如果用户输入 "yes"，则输出 "Good morning"
+  echo "Good morning"
+else
+  # 否则，输出 "Good afternoon"
+  echo "Good afternoon"
+fi
+
+# 退出脚本并返回状态码 0，表示成功执行
+exit 0

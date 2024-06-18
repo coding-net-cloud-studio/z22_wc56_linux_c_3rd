@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# 询问用户是否是早上
+echo "Is it morning? Please answer yes or no"
+# 读取用户输入
+read timeofday
+
+# 根据用户输入判断输出问候语,使用case语句进行条件匹配
+case "$timeofday" in
+    # 如果用户输入yes或y,输出早上好
+    "yes") echo "早上好";;
+    "y"  ) echo "早上好";;
+    # 如果用户输入no或n,输出下午好
+    "no" ) echo "下午好";;
+    "n"  ) echo "下午好";;
+    # 如果用户输入既不是yes/y也不是no/n,输出无法识别的提示
+    *    ) echo "对不起,答案无法识别";;
+esac
+
+# 退出程序
+exit 0

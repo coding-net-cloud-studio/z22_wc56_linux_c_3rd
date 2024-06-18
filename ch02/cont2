@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# 循环遍历数字 1 到 3
+for x in 1 2 3
+do
+    # 在每次循环中打印 "before" 和当前循环次数
+    echo before $x
+    # 使用 continue 语句跳过本次循环的剩余部分,进入下一次循环
+    continue 1
+    # 这行代码不会被执行,因为 continue 语句会直接跳到循环的开始
+    echo after $x
+done
+
+# 退出脚本并返回状态码 0,表示成功执行
+exit 0

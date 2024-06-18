@@ -1,0 +1,12 @@
+#!/bin/sh
+# 上面的行是脚本的 shebang,它指定了解释和执行脚本的程序,这里是 Bourne shell 或兼容的 shell.
+
+# 这是一个 for 循环,用于遍历后面的字符串列表
+for foo in bar fud 43
+do
+  # 在每次循环中,将变量 foo 的值打印到标准输出
+  echo $foo
+done
+
+# 退出脚本并返回状态码 0,表示成功执行
+exit 0

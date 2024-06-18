@@ -1,0 +1,11 @@
+#!/bin/sh
+# 定义一个变量version并设置为latest,表示使用最新版本
+version=latest
+
+# 设置环境变量PATH,将/usr/local/new_bin,/usr/bin,/bin和当前目录加入到路径中
+# 这样可以确保在这些位置中的可执行文件可以被找到和执行
+PATH=/usr/local/new_bin:/usr/bin:/bin:.
+
+# 设置命令提示符PS1,显示当前用户处于latest版本的环境中
+PS1=" latest version> "
+

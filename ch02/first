@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# first
+# This file looks through all the files in the current
+# directory for the string POSIX, and then prints the name of
+# those files to the standard output.
+
+# 遍历当前目录下的所有文件
+for file in *
+do
+  # 检查文件中是否包含"POSIX"字符串
+  if grep -q POSIX $file
+  then
+    # 如果包含,则输出文件名
+    echo $file
+  fi
+done
+
+# 退出脚本并返回状态码0,表示成功执行
+exit 0

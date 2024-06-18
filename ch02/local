@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#!/bin/bash
+# 定义一个全局变量sample_text,初始值为"global variable"
+sample_text="global variable"
+
+# 定义一个名为foo的函数
+foo() {
+    # 在函数内部定义一个局部变量sample_text,初始值为"local variable"
+    local sample_text="local variable"
+
+    # 输出提示信息,表明函数foo正在执行
+    echo "Function foo is executing"
+    # 输出当前作用域下的sample_text变量的值,即"local variable"
+    echo $sample_text
+}
+
+# 输出提示信息,表明脚本开始执行
+echo "script starting"
+# 输出全局变量sample_text的值,即"global variable"
+echo $sample_text
+
+# 调用foo函数
+foo
+
+# 输出提示信息,表明脚本执行结束
+echo "script ended"
+# 再次输出全局变量sample_text的值,仍然是"global variable"
+echo $sample_text
+
+# 退出脚本并返回状态码0,表示成功执行
+exit 0

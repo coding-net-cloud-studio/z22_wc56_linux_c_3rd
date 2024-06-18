@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# 设置一个陷阱,当接收到INT信号(通常是Ctrl-C)时,删除临时文件
+trap 'rm -f /tmp/my_tmp_file_$' INT
+
+# 创建一个带有时间戳的临时文件
+echo creating file /tmp/my_tmp_file_$
+date > /tmp/my_tmp_file_$
+
+# 提示用户按Ctrl-C中断
+echo "Press interrupt (Ctrl-C) to interrupt...."
+
+# 循环检查文件是否存在
+while [ -f /tmp/my_tmp_file_$ ]; do
+    echo File exists
+    sleep 1
+done
+
+# 文件不再存在时输出提示
+echo The file no longer exists
+
+# 清除陷阱,允许程序正常退出
+trap INT
+
+# 再次创建一个带有时间戳的临时文件
+echo creating file /tmp/my_tmp_file_$
+date > /tmp/my_tmp_file_$
+
+# 再次提示用户按Ctrl-C中断
+echo "Press interrupt (Ctrl-C) to interrupt...."
+
+# 再次循环检查文件是否存在
+while [ -f /tmp/my_tmp_file_$ ]; do
+    echo File exists
+    sleep 1
+done
+
+# 由于之前的陷阱已经被清除,这里将永远不会执行到
+echo We never get here
+
+# 程序正常退出
+exit 0

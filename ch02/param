@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# 取消设置变量foo,确保它是未定义的
+unset foo
+
+# 如果foo未定义,则打印默认值"bar",否则打印foo的值
+echo ${foo:-bar}
+
+# 将foo赋值为"fud"
+foo=fud
+
+# 如果foo已定义,则打印foo的值,否则打印默认值"bar"
+echo ${foo:-bar}
+
+# 将foo赋值为"/usr/bin/X11/startx"
+foo=/usr/bin/X11/startx
+
+# 打印从foo的第一个斜杠之后的所有字符(去除开头的路径)
+echo ${foo#*/}
+
+# 打印从foo的最后一个斜杠之后的所有字符(去除开头的完整路径)
+echo ${foo##*/}
+
+# 将bar赋值为"/usr/local/etc/local/networks"
+bar=/usr/local/etc/local/networks
+
+# 打印bar中最后一个"local"之前的所有字符(去除结尾的部分匹配)
+echo ${bar%local*}
+
+# 打印bar中第一个"local"之前的所有字符(去除结尾的完整匹配)
+echo ${bar%%local*}
+
+# 退出脚本并返回0表示成功执行
+exit 0

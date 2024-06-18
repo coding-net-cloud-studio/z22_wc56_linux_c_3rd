@@ -1,0 +1,12 @@
+{
+  "configurations": [
+      {
+          "name": "mysql",
+          "includePath": [
+            "/usr/include",
+              "/usr/include/mysql"
+          ]
+      }
+  ],
+  "version": 4
+}

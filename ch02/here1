@@ -1,0 +1,12 @@
+#!/bin/sh
+# 上面的行是脚本的shebang,它指定了解释和执行脚本的程序
+
+# 下面是一个here文档的例子,它允许嵌入多行字符串
+# 注意:我们不能在here文档的内容中直接添加注释,因为这会改变输出
+cat <<!FUNKY!
+hello
+this is a here
+document
+!FUNKY!
+
+# 这里可以添加更多的脚本命令
