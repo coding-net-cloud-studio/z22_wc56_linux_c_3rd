@@ -8,6 +8,10 @@ LDFLAGS=-lpthread
 # 定义使用的编译器为 gcc
 CC=gcc
 
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+# 注释:这是一个模式规则,用于编译C源文件为目标可执行文件.其中$@代表目标,$<代表依赖的C源文件
+
 clean:
 	rm -f thread1 thread2 thread3 thread3a thread4 thread5 thread6 thread6a thread7 thread7a thread8 thread8a
 

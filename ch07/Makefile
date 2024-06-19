@@ -20,6 +20,10 @@ INCLUDE=/usr/include/gdbm
 
 LIBS=-lgdbm_compat -lgdbm
 
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+# 注释:这是一个模式规则,用于编译C源文件为目标可执行文件.其中$@代表目标,$<代表依赖的C源文件
+
 
 # You make also need to edit the files dbm1.c and dbm2.c to change the
 # include of  <ndbm.h> to be <gdbm-ndbm.h>

@@ -30,5 +30,8 @@ clean:
 show:
 	-@git clean -xdf -n
 
+setup:
+	-@bash ./02_setup_env.sh
+
 # 定义伪目标,防止 make 时没有指定目标而报错
-.PHONY: all clean $(SUBDIRS) show
+.PHONY: all clean $(SUBDIRS) show setup
