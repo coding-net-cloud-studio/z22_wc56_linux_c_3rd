@@ -1,3 +1,53 @@
+进程间通信:管道.
+
+popen1.c - 一个使用popen和pclose实现管道的程序,用于捕获来自外部程序的输出.
+
+popen2.c - 一个使用popen向外部程序发送数据的程序.
+
+popen3.c - 一个程序,通过使用多次读取来从管道中读取大量数据.
+
+popen4.c - 一个使用popen启动shell的程序.
+
+pipe1.c - 一个使用pipe函数创建管道的程序.
+
+pipe2.c - 一个程序,它使用管道在分叉进程的两个部分之间传递数据.
+
+pipe3.c - 一个程序,它使用fork和execl函数创建一个子进程,然后使用pipe函数将数据从一个进程传递到另一个进程.
+
+pipe4.c - 在pipe3.c中被execl调用的子进程.
+
+pipe5.c - 一个程序,它在两个进程的标准输出和输入之间使用管道.
+
+fifo1.c - 一个使用fifo创建命名管道的程序.
+
+fifo2.c - 一个可以使用open来调查fifo文件性质的程序.
+
+fifo3.c, fifo4.c - 两个程序,展示了如何使用fifo在不相关的进程之间传递数据.
+
+client.h - 即将出现的客户端和服务器程序的头文件.
+
+server.c, client.c - 一个使用命名管道(fifo)的客户端/服务器应用程序.
+
+CD应用程序.
+
+app/makefile - 应用程序的makefile.(见第8章.)
+
+app/cd_data.h, app/cliserv.h - 头文件.
+
+app/app_ui.c - 与第7章中的app/app_ui.c相同.
+
+app/cd_dbm.c - 与第7章中的app/access.c相同.
+
+app/client_if.c, app/server.c - 两个文件,用于将旧函数与新函数进行接口连接.
+
+app/pipe_imp.c - 将客户端与服务器连接起来的管道.
+
+编译应用程序:
+$ make -f makefile
+
+运行应用程序:
+./server -i & ./client
+
 Inter-Process Communication: Pipes.
 
 

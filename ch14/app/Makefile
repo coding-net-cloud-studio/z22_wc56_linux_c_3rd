@@ -1,6 +1,6 @@
 all:	server client
 
-CC=cc
+CC=gcc
 CFLAGS= -pedantic -Wall
 
 # For debugging un-comment the next line

@@ -3,6 +3,9 @@
 
 # sudo apt-get install electric-fence
 
+CC=gcc
+# 注释:CC变量定义了使用的C编译器为gcc
+
 DEBUG=debug1 debug2 debug3 debug4
 CINFO=cinfo assert
 MEMORY=efence checker
@@ -15,13 +18,13 @@ ALL= $(DEBUG) $(CINFO) $(MEMORY)
 all: $(ALL)
 
 cinfo.o: cinfo.c
-	cc -c $(CFLAGS) -DDEBUG cinfo.c
+	$(CC) -c $(CFLAGS) -DDEBUG cinfo.c
 
 assert: assert.o
-	cc -o assert $(LDFLAGS) assert.o -lm
+	$(CC) -o assert $(LDFLAGS) assert.o -lm
 
 efence: efence.o
-	cc -o efence $(LDFLAGS) efence.o -lefence
+	$(CC) -o efence $(LDFLAGS) efence.o -lefence
 
 clean:
 	@rm -f $(ALL) *~ *.o
