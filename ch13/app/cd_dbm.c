@@ -4,70 +4,128 @@
 
 #define _XOPEN_SOURCE
 
+// 引入unistd头文件,提供对POSIX操作系统API的访问,如read(), write()等系统调用
 #include <unistd.h>
+// 引入stdlib头文件,提供通用的函数,如malloc(), free(), exit()等
 #include <stdlib.h>
+// 引入stdio头文件,提供C语言的输入输出功能,如printf(), scanf()等
 #include <stdio.h>
+// 引入fcntl头文件,提供对文件控制的接口,如open(), close(), fcntl()等
 #include <fcntl.h>
+// 引入string头文件,提供字符串处理函数,如strcpy(), strcmp()等
 #include <string.h>
+// 引入ndbm头文件,提供对数据库管理库(DBM)的访问接口
 #include <ndbm.h>
 /* The above may need to be changed to gdbm-ndbm.h on some distributions */
 
+// 引入cd_data头文件,该文件可能包含了数据结构和函数声明
 #include "cd_data.h"
 
+// 定义CDC(可能是某种配置或常量)文件的基名
 #define CDC_FILE_BASE "cdc_data"
+// 定义CDT(可能是另一种配置或常量)文件的基名
 #define CDT_FILE_BASE "cdt_data"
+
+// 定义CDC文件的目录文件名
 #define CDC_FILE_DIR  "cdc_data.dir"
+// 定义CDC文件的页文件名
 #define CDC_FILE_PAG  "cdc_data.pag"
+
+// 定义CDT文件的目录文件名
 #define CDT_FILE_DIR  "cdt_data.dir"
+// 定义CDT文件的页文件名
 #define CDT_FILE_PAG  "cdt_data.pag"
 
 /* Some file scope variables for accessing the database */
+/* 一些用于访问数据库的文件作用域变量 */
+
+// 定义两个静态DBM指针,用于在程序中管理数据库连接
+// cdc_dbm_ptr 用于处理某种特定类型的数据库连接
 static DBM *cdc_dbm_ptr = NULL;
+// cdt_dbm_ptr 用于处理另一种特定类型的数据库连接
 static DBM *cdt_dbm_ptr = NULL;
 
 /* This function initializes access to the database. If the parameter
    new_database is true, then a new database is started.
  */
+
+/* 这个函数初始化对数据库的访问.如果参数
+  new_database 为 true,则启动一个新的数据库.
+*/
+
+// 函数:database_initialize
+// 功能:初始化数据库,可以创建新数据库或打开现有数据库
+// 参数:new_database - 非零值表示创建新数据库,零表示打开现有数据库
+// 返回值:成功返回1,失败返回0
 int database_initialize(const int new_database)
 {
+    // 定义打开模式,默认为读写模式
     int open_mode = O_RDWR;
 
-    /* If any existing database is open then close it */
+    // 如果任何现有的数据库已打开,则关闭它
+    // 关闭cdc_dbm_ptr指向的数据库,如果它不是空指针
     if (cdc_dbm_ptr)
+        // 使用dbm_close函数关闭数据库
         dbm_close(cdc_dbm_ptr);
+
+    // 关闭cdt_dbm_ptr指向的数据库,如果它不是空指针
     if (cdt_dbm_ptr)
+        // 使用dbm_close函数关闭数据库
         dbm_close(cdt_dbm_ptr);
 
+    // 如果是创建新数据库
     if (new_database)
     {
-        /* delete the old files */
-        (void)unlink(CDC_FILE_PAG);
-        (void)unlink(CDC_FILE_DIR);
-        (void)unlink(CDT_FILE_PAG);
-        (void)unlink(CDT_FILE_DIR);
+        // 删除旧文件
+        // 删除与CD数据库相关的文件,这些文件可能包括页数据文件和目录文件
+        // CDC_FILE_PAG 代表 CD 数据库的页数据文件的路径名
+        (void)unlink(CDC_FILE_PAG);  // 删除CD数据库的页数据文件
+        // CDC_FILE_DIR 代表 CD 数据库的目录文件的路径名
+        (void)unlink(CDC_FILE_DIR);  // 删除CD数据库的目录文件
 
-        open_mode = O_CREAT | O_RDWR;
+        // 删除与CDT数据库相关的文件,这些文件也可能包括页数据文件和目录文件
+        // CDT_FILE_PAG 代表 CDT 数据库的页数据文件的路径名
+        (void)unlink(CDT_FILE_PAG);  // 删除CDT数据库的页数据文件
+        // CDT_FILE_DIR 代表 CDT 数据库的目录文件的路径名
+        (void)unlink(CDT_FILE_DIR);  // 删除CDT数据库的目录文件
+
+        // 更新打开模式以包含创建选项
+        open_mode |= O_CREAT;
     }
-    /* Open some new files, creating them if required */
+    // 打开新文件,如果需要则创建它们
+    // 打开CDC数据库文件,使用指定的打开模式和权限(0644)
     cdc_dbm_ptr = dbm_open(CDC_FILE_BASE, open_mode, 0644);
+
+    // 打开CDT数据库文件,使用相同的打开模式和权限
     cdt_dbm_ptr = dbm_open(CDT_FILE_BASE, open_mode, 0644);
+
+    // 检查是否成功打开文件
+    // 检查数据库指针是否有效
     if (!cdc_dbm_ptr || !cdt_dbm_ptr)
     {
-        fprintf(stderr, "Unable to create database\n");
+        // 如果指针无效,向标准错误输出错误信息
+        fprintf(stderr, "无法创建数据库\n");
+        // 将指针设置为NULL,表示数据库未成功打开
         cdc_dbm_ptr = cdt_dbm_ptr = NULL;
+        // 返回失败状态码
         return (0);
     }
+    // 返回成功状态
     return (1);
-
 } /* database_initialize */
 
+// 关闭数据库连接的函数
 void database_close(void)
 {
+    // 如果cdc_dbm_ptr非空,则关闭对应的数据库连接
     if (cdc_dbm_ptr)
         dbm_close(cdc_dbm_ptr);
+
+    // 如果cdt_dbm_ptr非空,则关闭对应的数据库连接
     if (cdt_dbm_ptr)
         dbm_close(cdt_dbm_ptr);
 
+    // 将两个数据库指针设置为NULL,表示关闭了连接
     cdc_dbm_ptr = cdt_dbm_ptr = NULL;
 
 } /* database_close */
