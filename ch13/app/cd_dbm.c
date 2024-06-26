@@ -134,36 +134,56 @@ void database_close(void)
    This function retrieves a single catalog entry, when passed a pointer
    pointing to catalog text string. If the entry is not found then the
    returned data has an empty catalog field. */
+
+/*
+  此函数检索单个目录条目,当传递一个指向目录文本字符串的指针时.
+  如果找不到条目,则返回的数据具有空的目录字段. */
+
+// 定义一个函数get_cdc_entry,用于从数据库中获取特定的cdc_entry
 cdc_entry get_cdc_entry(const char *cd_catalog_ptr)
 {
+    // 初始化一个cdc_entry结构体变量,用于存储要返回的条目
     cdc_entry entry_to_return;
-    char      entry_to_find[CAT_CAT_LEN + 1];
-    datum     local_data_datum;
-    datum     local_key_datum;
+    // 初始化一个字符数组,用于构建搜索键
+    char entry_to_find[CAT_CAT_LEN + 1];
+    // 定义两个datum类型变量,用于与数据库交互
+    datum local_data_datum;
+    datum local_key_datum;
 
+    // 将entry_to_return结构体的内存清零
     memset(&entry_to_return, '\0', sizeof(entry_to_return));
 
-    /* check database initialized and parameters valid */
+    // 检查数据库是否已初始化以及参数是否有效
     if (!cdc_dbm_ptr || !cdt_dbm_ptr)
-        return (entry_to_return);
+        return (entry_to_return);  // 如果数据库未初始化或参数无效,则返回空的entry_to_return
     if (!cd_catalog_ptr)
-        return (entry_to_return);
+        return (entry_to_return);  // 如果传入的指针为空,则返回空的entry_to_return
     if (strlen(cd_catalog_ptr) >= CAT_CAT_LEN)
-        return (entry_to_return);
+        return (entry_to_return);  // 如果传入的字符串长度超过限制,则返回空的entry_to_return
 
-    /* ensure the search key contains only the valid string and nulls */
-    memset(&entry_to_find, '\0', sizeof(entry_to_find));
-    strcpy(entry_to_find, cd_catalog_ptr);
+    // 确保搜索键只包含有效字符串和空字符
+    memset(&entry_to_find, '\0', sizeof(entry_to_find));  // 清空entry_to_find数组
+    strcpy(entry_to_find, cd_catalog_ptr);                // 将传入的字符串复制到entry_to_find数组中
 
+    // 设置local_key_datum的值,用于在数据库中查找
     local_key_datum.dptr  = (void *)entry_to_find;
     local_key_datum.dsize = sizeof(entry_to_find);
 
+    // 清空local_data_datum的内存
     memset(&local_data_datum, '\0', sizeof(local_data_datum));
+    // 使用dbm_fetch函数从数据库中获取数据
     local_data_datum = dbm_fetch(cdc_dbm_ptr, local_key_datum);
+    // 如果获取到了数据
     if (local_data_datum.dptr)
     {
-        memcpy(&entry_to_return, (char *)local_data_datum.dptr, local_data_datum.dsize);
+        // 将获取到的数据复制到entry_to_return结构体中
+        // 将local_data_datum中的数据复制到entry_to_return结构体中
+        // 注意:这里假设entry_to_return是预先定义好的结构体类型,且其大小与local_data_datum.dsize相匹配
+        memcpy(&entry_to_return,               // 目标内存地址,即要填充数据的结构体变量地址
+               (char *)local_data_datum.dptr,  // 源内存地址,即包含数据的指针地址
+               local_data_datum.dsize);        // 要复制的字节数
     }
+    // 返回获取到的条目
     return (entry_to_return);
 } /* get_cdc_entry */
 
