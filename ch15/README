@@ -1,3 +1,28 @@
+# 第 15 章 - 套接字.
+
+## client1.c - 一个简单的本地客户端程序.
+
+## server1.c - 一个简单的本地服务器程序.
+
+## client2.c - 一个简单的网络客户端程序.
+
+## server2.c - 一个简单的网络服务器程序.
+
+# client3.c - 对 client2.c 的修改,用于在主机和网络字节序之间进行转换.
+
+# server3.c - 对 server2.c 的修改,用于在主机和网络字节序之间进行转换.
+
+# getname.c - 一个使用 gethostbyname 获取网络信息的程序.
+
+# getdate.c - 一个使用套接字连接到标准网络服务的程序.
+
+## server4.c - 一个使用 fork 为多个客户端服务的程序.
+
+## select.c - 一个使用 select 函数检查一系列文件描述符活动的程序.
+
+# server5.c - 一个使用 select 函数而不是 fork 为多个客户端服务的程序.
+
+
 Chapter 15  -  Sockets.
 
 
