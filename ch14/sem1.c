@@ -1,8 +1,5 @@
-/* After the #includes, the function prototypes and the global variable, we come to the
- main function. There the semaphore is created with a call to semget, which returns the
- semaphore ID. If the program is the first to be called (i.e. it's called with a parameter
- and argc > 1), a call is made to set_semvalue to initialize the semaphore and op_char is
- set to X. */
+/* 在 #include 之后，函数原型和全局变量之后，我们来到主函数。在这里，信号量通过调用 semget 创建，并返回信号量 ID。
+如果程序是第一次被调用（即带有参数且 argc > 1），则会调用 set_semvalue 初始化信号量，并将 op_char 设置为 X。 */
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -78,8 +75,7 @@ int main(int argc, char *argv[])
     exit(EXIT_SUCCESS);
 }
 
-/* The function set_semvalue initializes the semaphore using the SETVAL command in a
- semctl call. We need to do this before we can use the semaphore. */
+/* set_semvalue 函数使用 semctl 调用中的 SETVAL 命令初始化信号量。我们需要在可以使用信号量之前执行此操作。 */
 
 static int set_semvalue(void)
 {
@@ -91,8 +87,7 @@ static int set_semvalue(void)
     return (1);
 }
 
-/* The del_semvalue function has almost the same form, except the call to semctl uses
- the command IPC_RMID to remove the semaphore's ID. */
+/* del_semvalue 函数的形式几乎相同，除了 semctl 调用使用 IPC_RMID 命令来删除信号量的 ID。 */
 
 static void del_semvalue(void)
 {
@@ -102,7 +97,7 @@ static void del_semvalue(void)
         fprintf(stderr, "Failed to delete semaphore\n");
 }
 
-/* semaphore_p changes the semaphore by -1 (waiting). */
+/* semaphore_p 将信号量减 1（等待）。 */
 
 static int semaphore_p(void)
 {
@@ -119,8 +114,7 @@ static int semaphore_p(void)
     return (1);
 }
 
-/* semaphore_v is similar except for setting the sem_op part of the sembuf structure to 1,
- so that the semaphore becomes available. */
+/* semaphore_v 类似，只是将 sembuf 结构的 sem_op 部分设置为 1，以便信号量变为可用。 */
 
 static int semaphore_v(void)
 {
