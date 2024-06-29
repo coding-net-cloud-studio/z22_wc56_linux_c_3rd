@@ -183,3 +183,5 @@ ch13/app/server
 ch14/app/client
 ch14/app/server
 # ================================================
+.aider*
+.envrc

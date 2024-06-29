@@ -4,26 +4,37 @@
 
 #define _XOPEN_SOURCE
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <string.h>
+// 导入所需的头文件
+#include <unistd.h>  // 提供对POSIX操作系统API的访问,如read/write等系统调用
+#include <stdlib.h>  // 提供程序退出,动态内存分配等功能
+#include <stdio.h>   // 提供标准输入输出功能
+#include <fcntl.h>   // 提供文件控制和文件描述符操作功能
+#include <string.h>  // 提供字符串处理功能
 
+// 引入ndbm库,这是为了使用gdbm数据库,某些Linux发行版可能需要使用gdbm-ndbm.h
 #include <ndbm.h>
-/* The above include may need to be changed to gdbm-ndbm.h on some Linux distributions */
 
+// 引入自定义的cd_data头文件,这个文件可能包含了与CD数据相关的结构体和函数声明
 #include "cd_data.h"
 
+// 定义CDC(CD数据)和CDT(CD时间)文件的基名
 #define CDC_FILE_BASE "cdc_data"
 #define CDT_FILE_BASE "cdt_data"
+
+// 定义CDC和CDT文件的目录和页码文件名
+// 定义CDC数据的目录文件名
 #define CDC_FILE_DIR  "cdc_data.dir"
+// 定义CDC数据的页文件名
 #define CDC_FILE_PAG  "cdc_data.pag"
+// 定义CDT数据的目录文件名
 #define CDT_FILE_DIR  "cdt_data.dir"
+// 定义CDT数据的页文件名
 #define CDT_FILE_PAG  "cdt_data.pag"
 
-/* Some file scope variables for accessing the database */
+/* 一些文件作用域变量,用于访问数据库 */
+// cdc_dbm_ptr 用于指向控制数据管理块(Control Data Management Block)的指针
 static DBM *cdc_dbm_ptr = NULL;
+// cdt_dbm_ptr 用于指向控制数据表(Control Data Table)的指针
 static DBM *cdt_dbm_ptr = NULL;
 
 /* This function initializes access to the database. If the parameter
