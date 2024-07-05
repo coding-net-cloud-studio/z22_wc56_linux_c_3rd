@@ -273,5 +273,8 @@
         "string.h": "c",
         "stdio.h": "c",
         "ctype.h": "c"
+    },
+    "aide.convertLanguagePairs": {
+        "c": "go"
     }
 }
