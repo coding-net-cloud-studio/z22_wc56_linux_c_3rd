@@ -192,8 +192,12 @@ static menu_options show_menu(const cdc_entry *cdc_selected)
     // mo_invalid表示无效选项
     menu_options option_chosen = mo_invalid;
 
+    // 当前代码处于一个循环中,用于等待用户选择一个有效的选项
+    // option_chosen 是一个变量,用于存储用户选择的选项
+    // mo_invalid 是一个枚举值,表示无效的选项
     while (option_chosen == mo_invalid)
     {
+        // 检查cdc_selected结构体中的catalog数组第一个元素是否非空
         if (cdc_selected->catalog[0])
         {
             // 打印当前选中的CD信息
