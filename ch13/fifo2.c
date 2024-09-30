@@ -1,4 +1,3 @@
-// 引入必要的头文件
 // 引入unistd头文件,提供对POSIX操作系统API的访问,如read(), write()等系统调用
 #include <unistd.h>
 // 引入stdlib头文件,提供通用的函数,如malloc(), free()等
@@ -32,19 +31,22 @@ int main(int argc, char *argv[])
     }
 
     // 根据命令行参数设置open_mode的值
-    for (i = 1; i < argc; i++)
+    // 以下代码段用于解析命令行参数,并设置文件打开模式
+    for (i = 1; i < argc; i++)  // 从第二个参数开始遍历命令行参数
     {
-        if (strncmp(*++argv, "O_RDONLY", 8) == 0)
-            open_mode |= O_RDONLY;
-        if (strncmp(*argv, "O_WRONLY", 8) == 0)
-            open_mode |= O_WRONLY;
-        if (strncmp(*argv, "O_NONBLOCK", 10) == 0)
-            open_mode |= O_NONBLOCK;
+        if (strncmp(*++argv, "O_RDONLY", 8) == 0)   // 检查参数是否为只读模式
+            open_mode |= O_RDONLY;                  // 设置只读模式标志
+        if (strncmp(*argv, "O_WRONLY", 8) == 0)     // 检查参数是否为只写模式
+            open_mode |= O_WRONLY;                  // 设置只写模式标志
+        if (strncmp(*argv, "O_NONBLOCK", 10) == 0)  // 检查参数是否为非阻塞模式
+            open_mode |= O_NONBLOCK;                // 设置非阻塞模式标志
     }
 
     // 检查FIFO是否存在,如果不存在则创建它
+    // 检查FIFO文件是否存在
     if (access(FIFO_NAME, F_OK) == -1)
     {
+        // 如果不存在,则创建FIFO文件
         res = mkfifo(FIFO_NAME, 0777);
         if (res != 0)
         {

@@ -1,4 +1,4 @@
-// 引入必要的头文件
+
 #include <stdlib.h>  // 用于环境变量操作和内存管理
 #include <stdio.h>   // 用于输入输出操作
 

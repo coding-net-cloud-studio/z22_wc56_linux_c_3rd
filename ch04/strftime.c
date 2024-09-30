@@ -5,7 +5,6 @@
 #include <stdlib.h>    // 标准库函数
 #include <string.h>    // 字符串处理函数
 
-// 引入必要的头文件
 #include <time.h>
 #include <stdio.h>
 #include <string.h>

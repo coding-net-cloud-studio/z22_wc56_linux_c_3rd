@@ -273,9 +273,12 @@
         "string.h": "c",
         "stdio.h": "c",
         "ctype.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "termios.h": "c",
+        "unistd.h": "c"
     },
     "aide.convertLanguagePairs": {
         "c": "go"
-    }
+    },
+    "Codegeex.RepoIndex": true
 }

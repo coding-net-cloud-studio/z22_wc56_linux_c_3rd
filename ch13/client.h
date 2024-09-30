@@ -1,4 +1,3 @@
-// 引入必要的头文件
 #include <unistd.h>     // 提供POSIX操作系统API的访问,如read(), write()等
 #include <stdlib.h>     // 提供内存管理函数,如malloc(), free()等
 #include <stdio.h>      // 提供标准输入输出函数,如printf(), scanf()等

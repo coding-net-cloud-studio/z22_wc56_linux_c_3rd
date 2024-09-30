@@ -45,24 +45,35 @@ int main()
     }
 
     // 打印进程ID和打开管道的模式
+    // 打印当前进程ID,并说明正在以只写模式打开管道
     printf("进程 %d 以O_WRONLY模式打开管道\n", getpid());
+    // 尝试打开名为FIFO_NAME的管道文件,使用变量open_mode指定的模式
     pipe_fd = open(FIFO_NAME, open_mode);
+    // 打印当前进程ID和打开管道的结果(文件描述符)
     printf("进程 %d 打开结果 %d\n", getpid(), pipe_fd);
 
     // 如果管道成功打开,则开始写入数据
     if (pipe_fd != -1)
     {
         // 循环写入数据直到达到10MB
+        // 向管道写入数据,直到发送了指定数量的字节
         while (bytes_sent < TEN_MEG)
         {
-            res = write(pipe_fd, buffer, BUFFER_SIZE);  // 向管道写入数据
+            // 尝试向管道写入数据
+            // 将缓冲区中的数据写入管道,BUFFER_SIZE定义了要写入的字节数
+            // write函数返回实际写入的字节数,如果返回值小于BUFFER_SIZE,可能表示发生了错误或管道已满
+            res = write(pipe_fd, buffer, BUFFER_SIZE);
+
+            // 如果写入失败,打印错误信息并退出程序
             if (res == -1)
             {
                 fprintf(stderr, "管道写入错误\n");
                 exit(EXIT_FAILURE);
             }
-            bytes_sent += res;  // 更新已发送字节数
+            // 更新已发送的字节数
+            bytes_sent += res;
         }
+
         (void)close(pipe_fd);  // 关闭管道文件描述符
     }
     else

@@ -83,51 +83,73 @@ int main(int argc, char *argv[])
     new_action.sa_handler = catch_signals;
     sigemptyset(&new_action.sa_mask);
     new_action.sa_flags = 0;
+
     // 捕获SIGINT,SIGHUP,SIGTERM信号
-    if ((sigaction(SIGINT, &new_action, &old_action) != 0) ||
-        (sigaction(SIGHUP, &new_action, &old_action) != 0) ||
-        (sigaction(SIGTERM, &new_action, &old_action) != 0))
+    // 服务器信号处理设置
+    if ((sigaction(SIGINT, &new_action, &old_action) != 0) ||  // 设置SIGINT信号的处理函数
+        (sigaction(SIGHUP, &new_action, &old_action) != 0) ||  // 设置SIGHUP信号的处理函数
+        (sigaction(SIGTERM, &new_action, &old_action) != 0))   // 设置SIGTERM信号的处理函数
     {
-        // 信号捕捉失败,输出错误信息并退出程序
+        // 如果任一信号捕捉设置失败
+        // 输出错误信息到标准错误流
         fprintf(stderr, "服务器启动错误,信号捕捉失败\n");
+        // 退出程序,返回失败状态码
         exit(EXIT_FAILURE);
     }
 
     // 解析命令行参数,判断是否需要初始化数据库
+    // 检查命令行参数的数量是否大于1
     if (argc > 1)
     {
+        // 移动到第二个参数
         argv++;
+        // 检查当前参数是否以"-i"开头
         if (strncmp("-i", *argv, 2) == 0)
+            // 如果是,设置数据库初始化类型为1
             database_init_type = 1;
     }
+
     // 初始化数据库
+    // 初始化数据库,如果初始化失败,则输出错误信息并退出程序
     if (!database_initialize(database_init_type))
     {
-        // 数据库初始化失败,输出错误信息并退出程序
+        // 输出错误信息到标准错误流
         fprintf(stderr, "服务器错误:无法初始化数据库\n");
+        // 退出程序,返回失败状态码
         exit(EXIT_FAILURE);
     }
 
     // 启动服务器
+    // 如果服务器启动失败,则退出程序并返回失败状态码
+    // 函数:server_starting()
+    // 返回值:布尔值,表示服务器是否成功启动
     if (!server_starting())
-        exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);  // 退出程序,返回EXIT_FAILURE
 
     // 服务器运行循环
     while (server_running)
     {
         // 从客户端读取请求
+        // 函数功能:尝试从客户端读取请求,如果成功则处理请求,失败则输出错误信息并停止服务器运行
+        // 参数:&mess_command - 用于存储从客户端读取的请求信息的变量地址
+        // 返回值:成功返回非零值,失败返回零
         if (read_request_from_client(&mess_command))
         {
             // 处理请求
+            // 函数功能:处理从客户端读取到的请求
+            // 参数:mess_command - 从客户端读取到的请求信息
             process_command(mess_command);
         }
         else
         {
             // 读取请求失败,输出错误信息并停止服务器运行
+            // 如果服务器正在运行,输出错误信息到标准错误流
             if (server_running)
                 fprintf(stderr, "服务器结束 - 无法读取管道\n");
+            // 设置服务器运行状态为停止
             server_running = 0;
         }
+
     } /* while */
     // 服务器结束处理
     server_ending();
@@ -162,9 +184,11 @@ static void process_command(const message_db_t comm)
     }
 
     // 设置响应状态为成功,并清空错误文本
+    // 设置响应状态为成功
     resp.response = r_success;
+    // 清空错误文本数组,确保没有残留的错误信息
     memset(resp.error_text, '\0', sizeof(resp.error_text));
-    // 初始化保存错误编号的变量
+    // 初始化保存错误编号的变量,用于记录可能发生的错误
     save_errno = 0;
 
     // 根据请求类型进行相应处理
@@ -209,10 +233,12 @@ static void process_command(const message_db_t comm)
         {
             // 从通信结构体中获取cdc_entry_data的目录信息
             resp.cdc_entry_data = search_cdc_entry(comm.cdc_entry_data.catalog, &first_time);
+            // 检查响应中的目录条目是否不为0,即是否存在条目
             if (resp.cdc_entry_data.catalog[0] != 0)
             {
-                // 如果找到条目,设置响应状态为成功,并向客户端发送响应
+                // 如果找到条目,设置响应状态为成功
                 resp.response = r_success;
+                // 尝试向客户端发送响应
                 if (!send_resp_to_client(resp))
                 {
                     // 如果发送响应失败,打印警告信息并跳出循环
@@ -225,6 +251,7 @@ static void process_command(const message_db_t comm)
                 // 如果没有找到更多条目,设置响应状态为没有更多
                 resp.response = r_find_no_more;
             }
+
         } while (resp.response == r_success);
         break;
     default:

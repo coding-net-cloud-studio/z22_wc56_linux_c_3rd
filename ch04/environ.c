@@ -1,6 +1,8 @@
-//  1  The first few lines after the declaration of main ensure that the program, environ.c, has been called correctly.
+/* 1  The first few lines after the declaration of main ensure that the program, environ.c,
+has been called correctly. */
 
-// 引入必要的头文件
+/* 1 主函数声明后的前几行确保程序 environ.c 被正确调用. */
+
 #include <stdlib.h>  // 用于动态内存管理
 #include <stdio.h>   // 用于输入输出功能
 #include <string.h>  // 用于字符串处理
@@ -8,7 +10,10 @@
 // 主函数,接收命令行参数并处理环境变量操作
 int main(int argc, char *argv[])
 {
-    char *var, *value;
+    // 定义一个指向字符的指针变量 var,用于存储环境变量名
+    char *var;
+    // 定义一个指向字符的指针变量 value,用于存储环境变量的值
+    char *value;
 
     // 检查命令行参数数量,必须是1个或3个
     if (argc == 1 || argc > 3)
@@ -19,8 +24,11 @@ int main(int argc, char *argv[])
     }
 
     // 获取环境变量的值
-    var   = argv[1];
+    // 从命令行参数中获取环境变量名
+    var = argv[1];
+    // 获取指定环境变量的值
     value = getenv(var);
+
     // 输出环境变量的当前值,如果存在的话
     if (value)
         printf("变量 %s 的值为 %s\n", var, value);
@@ -42,9 +50,15 @@ int main(int argc, char *argv[])
             exit(1);
         }
         // 拼接字符串
+        // 将变量var的内容复制到字符串string中
         strcpy(string, var);
+
+        // 在string的末尾追加等号'='
         strcat(string, "=");
+
+        // 在string的末尾追加变量value的内容
         strcat(string, value);
+
         // 输出即将设置的环境变量字符串
         printf("调用 putenv 函数:%s\n", string);
         // 设置环境变量

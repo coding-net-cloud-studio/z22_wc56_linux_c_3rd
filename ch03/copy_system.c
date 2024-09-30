@@ -1,4 +1,4 @@
-// 引入必要的头文件
+
 #include <unistd.h>    // 用于文件I/O操作
 #include <sys/stat.h>  // 用于文件状态操作
 #include <fcntl.h>     // 用于文件描述符操作

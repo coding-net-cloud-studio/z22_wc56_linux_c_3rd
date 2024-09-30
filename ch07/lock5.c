@@ -1,4 +1,4 @@
-// 引入必要的头文件
+
 #include <unistd.h>  // 用于进程控制,如sleep()函数
 #include <stdlib.h>  // 用于内存管理,如malloc()和free()函数
 #include <stdio.h>   // 用于输入输出,如printf()函数

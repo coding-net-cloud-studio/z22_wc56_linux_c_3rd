@@ -1,4 +1,3 @@
-// 引入必要的头文件
 #include <stdio.h>    // 用于标准输入输出
 #include <stdlib.h>   // 用于系统调用和错误处理
 #include <termios.h>  // 用于控制终端的属性
@@ -6,8 +5,11 @@
 #include <curses.h>   // 用于创建图形界面
 #include <unistd.h>   // 用于进程控制和系统调用
 
+// 定义两个termios结构体变量,用于存储终端的初始设置和新的设置
 static struct termios initial_settings, new_settings;
-static int            peek_character = -1;
+
+// 定义一个静态整型变量peek_character,用于存储预读取的字符,初始值为-1
+static int peek_character = -1;
 
 // 初始化键盘输入模式
 // 初始化键盘设置,以便进行非阻塞读取
@@ -26,7 +28,10 @@ int main()
     init_keyboard();
 
     // 使用循环来持续检查按键输入,直到用户按下'q'键退出
+    // 定义一个字符变量ch并初始化为0
+    // 这个变量可能用于存储从键盘输入的字符
     char ch = 0;
+
     while (ch != 'q')
     {
         // 打印提示信息,表明程序正在运行

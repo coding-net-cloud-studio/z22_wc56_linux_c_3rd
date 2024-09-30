@@ -1,4 +1,3 @@
-// 引入必要的头文件
 #include <stdio.h>   // 用于标准输入输出
 #include <term.h>    // 用于终端控制
 #include <curses.h>  // 用于图形化界面控制
