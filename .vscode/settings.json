@@ -281,5 +281,35 @@
     "aide.convertLanguagePairs": {
         "c": "go"
     },
-    "Codegeex.RepoIndex": true
+    "Codegeex.RepoIndex": true,
+    "commandOnAllFiles.commands": {
+      "cb38_把中文符号修改为英文符号": {
+        "command": "chinese-punctuation-to-english.toEnglish",
+        "includeFileExtensions": [".py",".h",".c",".cpp",".go",".rs",".js",".json",".lua"],
+        "excludeFolders": [
+          "node_modules", "out", ".vscode-test", "media", ".git"
+          ]
+      },
+      "cb40_删除尾部的空格": {
+          "command": "editor.action.trimTrailingWhitespace",
+          "includeFileExtensions": [".py",".h",".c",".cpp",".go",".rs",".js",".json",".lua"],
+          "excludeFolders": [
+            "node_modules", "out", ".vscode-test", "media", ".git"
+            ]
+        },
+      "cb42_shell_把中文符号修改为英文符号": {
+      "command": "chinese-punctuation-to-english.toEnglish",
+      "includeFileExtensions": [".sh","Makefile"],
+      "excludeFolders": [
+          "node_modules", "out", ".vscode-test", "media", ".git"
+          ]
+      },
+      "cb44_shell_删除尾部的空格": {
+          "command": "editor.action.trimTrailingWhitespace",
+          "includeFileExtensions": [".sh","Makefile"],
+          "excludeFolders": [
+            "node_modules", "out", ".vscode-test", "media", ".git"
+            ]
+        }
+    }
 }
