@@ -22,7 +22,7 @@
                 Computer Science Department
                 Western Washington University
                 Bellingham, WA 98226
-       
+
 *************************************************************************/
 
 #include <gdbm.h>
