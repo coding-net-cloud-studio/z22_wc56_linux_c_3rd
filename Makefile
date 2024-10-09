@@ -30,8 +30,27 @@ clean:
 show:
 	-@git clean -xdf -n
 
+# 使用bash执行脚本_安装一下需要用到的软件
 setup:
 	-@bash ./02_setup_env.sh
 
 # 定义伪目标,防止 make 时没有指定目标而报错
 .PHONY: all clean $(SUBDIRS) show setup
+
+.PHONY: help
+
+help:
+	@echo "Makefile 帮助信息:"
+	@echo ""
+	@echo "可用的构建目标:"
+	@echo "  all       : 构建项目(默认) "
+	@echo "  setup     : 安装一下需要用到的软件与库 "
+	@echo "  show      : 通过git clean -xdf -n 查看构建了哪些_可执行文件 "
+	@echo "  clean     : 清理生成的文件"
+	@echo "  help      : 显示此帮助信息"
+	@echo ""
+	@echo "示例命令:"
+	@echo "  make: 构建项目"
+	@echo "  make clean : 清理生成的文件"
+	@echo "  make help  : 显示此帮助信息"
+
