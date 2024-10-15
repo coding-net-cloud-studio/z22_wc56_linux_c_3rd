@@ -13,8 +13,10 @@ CFLAGS = -Wall -I./include
 # 子目录列表
 SUBDIRS = ch03 ch04 ch05 ch06 ch07 ch08 ch09 ch10 ch11 ch12 ch13 ch14 ch15 ch06/app ch07/app ch08/app ch13/app ch14/app
 
+default: help
+
 # 默认目标
-all: $(SUBDIRS)
+build : $(SUBDIRS)
 
 # 递归规则,用于遍历每个子目录并调用其 Makefile
 $(SUBDIRS):
@@ -35,7 +37,7 @@ setup:
 	-@bash ./02_setup_env.sh
 
 # 定义伪目标,防止 make 时没有指定目标而报错
-.PHONY: all clean $(SUBDIRS) show setup
+.PHONY: build clean $(SUBDIRS) show setup
 
 .PHONY: help
 
@@ -43,7 +45,7 @@ help:
 	@echo "Makefile 帮助信息:"
 	@echo ""
 	@echo "可用的构建目标:"
-	@echo "  all       : 构建项目(默认) "
+	@echo "  build       : 构建项目(默认) "
 	@echo "  setup     : 安装一下需要用到的软件与库 "
 	@echo "  show      : 通过git clean -xdf -n 查看构建了哪些_可执行文件 "
 	@echo "  clean     : 清理生成的文件"
