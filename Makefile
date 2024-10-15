@@ -16,43 +16,69 @@ SUBDIRS = ch03 ch04 ch05 ch06 ch07 ch08 ch09 ch10 ch11 ch12 ch13 ch14 ch15 ch06/
 default: help
 
 # 默认目标
-build : $(SUBDIRS)
+23_build_all : $(SUBDIRS)
 
 # 递归规则,用于遍历每个子目录并调用其 Makefile
 $(SUBDIRS):
 	$(MAKE) -C $@
 
 # 清理目标
-clean:
+7_clean_all:
 	for dir in $(SUBDIRS); do \
 			$(MAKE) -C $$dir clean; \
 	done
 
+# 快捷名称
+clean: 7_clean_all
+
 # 通过git clean -xdf -n 查看构建了哪些_可执行文件
-show:
+5_show:
 	-@git clean -xdf -n
 
+# 便捷名称
+show: 5_show
+
 # 使用bash执行脚本_安装一下需要用到的软件
-setup:
+12_init_for_cloudstudio:
 	-@bash ./02_setup_env.sh
 
+# 快捷名称
+cs: 12_init_for_cloudstudio
+
+# NOTE 这里给club增加一个独立的初始化快捷方式
+# 这里仅仅安装几个构建apue需要用到的软件与库文件
+install_lib_for_club:
+	-@ [[ -f $$(which cloudstudio) ]] && echo "cloudstudio 已经安装" || echo "cloudstudio 未安装 无需执行_本目标"
+	-@ [[ -f $$(which cloudstudio) ]] && apt update && apt install -y libbsd-dev libgdbm-dev libgdbm-compat-dev libmysqlclient-dev electric-fence || echo "cloudstudio 未安装 无需执行_本目标"
+
+# 快捷名称
+11_install_lib_for_club: install_lib_for_club
+
+# 快捷名称
+club: install_lib_for_club
+
+
+
 # 定义伪目标,防止 make 时没有指定目标而报错
-.PHONY: build clean $(SUBDIRS) show setup
+.PHONY: 23_build_all clean $(SUBDIRS) 5_show show setup 7_clean_all
 
 .PHONY: help
+
+.PHONY: install_lib_for_club 11_install_lib_for_club 12_init_for_cloudstudio cs club
 
 help:
 	@echo "Makefile 帮助信息:"
 	@echo ""
 	@echo "可用的构建目标:"
-	@echo "  build       : 构建项目(默认) "
-	@echo "  setup     : 安装一下需要用到的软件与库 "
-	@echo "  show      : 通过git clean -xdf -n 查看构建了哪些_可执行文件 "
-	@echo "  clean     : 清理生成的文件"
-	@echo "  help      : 显示此帮助信息"
+	@echo "  23_build_all                              : 构建项目(默认) "
+	@echo "  11_install_lib_for_club                   : 本目标只是在club教程中运行_快速安装构建需要用到的几个库"
+	@echo "  12_init_for_cloudstudio                   : 本目标只是在cloudstudio工作空间中运行_只需要运行1次就可以了"
+	@echo "  5_show                                    : 通过git clean -xdf -n 查看构建了哪些_可执行文件 "
+	@echo "  7_clean_all                               : 清理生成的文件"
+	@echo "  help                                      : 显示此帮助信息"
 	@echo ""
 	@echo "示例命令:"
 	@echo "  make: 构建项目"
-	@echo "  make clean : 清理生成的文件"
-	@echo "  make help  : 显示此帮助信息"
+	@echo "  make  7_clean_all                          : 清理生成的文件"
+	@echo "  make  help                                 : 显示此帮助信息"
 
