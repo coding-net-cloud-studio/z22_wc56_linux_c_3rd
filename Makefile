@@ -47,6 +47,9 @@ show: 5_show
 	-@ [[ -f $$(which cloudstudio) ]] && git commit -m "进入cloudstudio首次提交" || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git checkout -b cloudstudio_运行中 || exit 0
 	-@bash ./02_setup_env.sh
+	-@make  23_build_all
+	-@clear
+	-@make help
 
 
 # 快捷名称
