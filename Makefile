@@ -52,7 +52,7 @@ clean: 7_clean_all
 show: 5_show
 
 # 使用bash执行脚本_安装一下需要用到的软件
-12_init_for_cloudstudio:
+12_init_for_cloudstudio_main:
 	-@echo -e "$$(pwd)/Makefile wmtask_[12_init_for_cloudstudio]_目标_被运行\n"
 	-@ [[ -f $$(which cloudstudio) ]] && git remote remove  origin  || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git remote add     origin https://cnb.cool/8888/c/linux_c.git || exit 0
@@ -71,6 +71,9 @@ show: 5_show
 	-@clear
 	-@make help
 
+12_init_for_cloudstudio: 12_init_for_cloudstudio_main 0_更新到最新版本
+	-@clear
+	-@make help
 
 # 快捷名称
 cs: 12_init_for_cloudstudio
@@ -94,6 +97,8 @@ club: install_lib_for_club
 .PHONY: 23_build_all clean $(SUBDIRS) 5_show show setup 7_clean_all
 
 .PHONY: help
+
+.PHONY: 12_init_for_cloudstudio_main
 
 .PHONY: install_lib_for_club 11_install_lib_for_club 12_init_for_cloudstudio cs club
 
