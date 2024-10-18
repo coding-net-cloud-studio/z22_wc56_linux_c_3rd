@@ -232,28 +232,34 @@ f27_38_install_some_vs_ext_quick(){
 
 f30_install_some_software(){
 	if [[ -f $(which cloudstudio) ]]; then
-		apt update -y
-		DEBIAN_FRONTEND=noninteractive apt install -y \
-			iputils-ping \
-			make \
-			lsof \
-			net-tools \
-			psmisc \
-			file \
-			rsync \
-			curl \
-			direnv \
-			sqlite3 \
-			libsqlite3-dev \
-			bats \
-			jq \
-			gron \
-			pdfgrep \
-			ripgrep \
-			httpie \
-			duff \
-			mlocate \
-      pv
+    if [[ ! -f /usr/bin/wc56_cn32_cloudstudio_installed.sh ]]; then
+      apt update -y
+      DEBIAN_FRONTEND=noninteractive apt install -y \
+        iputils-ping \
+        make \
+        lsof \
+        net-tools \
+        psmisc \
+        file \
+        rsync \
+        curl \
+        direnv \
+        sqlite3 \
+        libsqlite3-dev \
+        bats \
+        jq \
+        gron \
+        pdfgrep \
+        ripgrep \
+        httpie \
+        duff \
+        mlocate \
+        pv \
+        tree
+    else
+      touch /usr/bin/wc56_cn32_cloudstudio_installed.sh
+      chmod +x /usr/bin/wc56_cn32_cloudstudio_installed.sh
+    fi
 
 	fi
 
