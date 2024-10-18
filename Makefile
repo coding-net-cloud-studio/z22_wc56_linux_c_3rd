@@ -41,7 +41,7 @@ show: 5_show
 # 使用bash执行脚本_安装一下需要用到的软件
 12_init_for_cloudstudio:
 	-@echo -e "$$(pwd)/Makefile wmtask_[12_init_for_cloudstudio]_目标_被运行\n"
-	@ [[ -f $$(which cloudstudio) ]] && git checkout -b cloudstudio_刚刚下拉 || $(clear; exit)
+	-@ [[ -f $$(which cloudstudio) ]] && git checkout -b cloudstudio_刚刚下拉 || exit 0
 	-@ touch README.md
 	-@ [[ -f $$(which cloudstudio) ]] && git add -A || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git commit -m "进入cloudstudio首次提交" || exit 0
