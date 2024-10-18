@@ -104,4 +104,4 @@ Neil Matthew 和Richard Stones世界知名的Linux/UNIX专家,有数十年Linux/
 * 开本**16开**
 * 原书名**Beginning Linux Programming**
 * 原书号**9780470147627**
-* 2024年10月18日_v1170
+* 2024年10月18日_v1200
