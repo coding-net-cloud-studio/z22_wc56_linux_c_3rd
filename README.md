@@ -1,4 +1,4 @@
-# Linux程序设计(第4版)
+# Linux程序设计(第4版)-腾讯AI编程助手增加注释
 
 [图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171)
 
@@ -10,10 +10,10 @@
 Makefile 帮助信息:
 
 可用的构建目标:
-  23_build_all                              : 构建项目(默认) 
+  23_build_all                              : 构建项目(默认)
   11_install_lib_for_club                   : 本目标只是在club教程中运行_快速安装构建需要用到的几个库
   12_init_for_cloudstudio                   : 本目标只是在cloudstudio工作空间中运行_只需要运行1次就可以了
-  5_show                                    : 通过git clean -xdf -n 查看构建了哪些_可执行文件 
+  5_show                                    : 通过git clean -xdf -n 查看构建了哪些_可执行文件
   7_clean_all                               : 清理生成的文件
   help                                      : 显示此帮助信息
 
