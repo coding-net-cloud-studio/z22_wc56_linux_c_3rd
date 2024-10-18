@@ -1,6 +1,6 @@
 # Linux程序设计(第4版)-腾讯AI编程助手增加注释
 
-[图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171)
+[图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171) [人民邮电出版社京东自营官方旗舰店 本书购买链接](https://item.jd.com/13078641.html)
 
 [![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22151271316230144?channel=share&sharetype=Markdown)
 
@@ -31,6 +31,28 @@ Makefile 帮助信息:
 ```
 
 ![img](wmimages/ab30_book.jpg)
+
+#### 我自学 我自讲
+
+恋爱与撒狗粮专业研究生,是一个在云上工作室cloudstudio.net中,
+
+在腾讯云AI编程助手与智谱codegeex的辅助下,
+
+为智谱ChatGLM3大模型微调,如何一步一步的,准备数据的,系列分享.
+
+"我自学,我自讲" 侧重在:
+
+    智谱ChatGLM3大模型,腾讯云HAI高性能计算平台上,如何与ollama相互配合与互动的模式下,实现该大模型的本地化部署,应用开发与微调.
+
+这里是本系列分享的第cb01个文章与cloudstudio应用:
+
+"贝加尔阿楠和小嗒莎在西伯利亚结婚了". 故事主线将沿着,男主与女主,在北京相遇,流浪在北京时候的故事展开.
+
+我就是传说中的 赶考赶考
+
+欢迎加上面VX提供故事线索.
+
+![中国青年情侣_流浪在北京2](wmimages/bb36_beijing.png)
 
 #### 简介
 
