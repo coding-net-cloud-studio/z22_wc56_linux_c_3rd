@@ -232,7 +232,7 @@ f27_38_install_some_vs_ext_quick(){
 
 f30_install_some_software(){
 	if [[ -f $(which cloudstudio) ]]; then
-    if [[ ! -f /usr/bin/wc56_cn32_cloudstudio_installed.sh ]]; then
+    if [[ ! -f $(which wc56_cn32_cloudstudio_installed.sh) ]]; then
       apt update -y
       DEBIAN_FRONTEND=noninteractive apt install -y \
         iputils-ping \
@@ -256,8 +256,9 @@ f30_install_some_software(){
         mlocate \
         pv \
         tree
-    else
-      touch /usr/bin/wc56_cn32_cloudstudio_installed.sh
+
+      # NOTE 执行完成安装任务以后_创建_锁文件
+      echo "echo 已经初始化了本cloudstudio工作空间 $(date)" >> /usr/bin/wc56_cn32_cloudstudio_installed.sh
       chmod +x /usr/bin/wc56_cn32_cloudstudio_installed.sh
     fi
 
