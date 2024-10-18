@@ -15,6 +15,19 @@ SUBDIRS = ch03 ch04 ch05 ch06 ch07 ch08 ch09 ch10 ch11 ch12 ch13 ch14 ch15 ch06/
 
 default: help
 
+# 0_更新到最新版本
+0_更新到最新版本:
+	-@ [[ -f $$(which cloudstudio) ]] && git stash || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git switch wmstudy_cn || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git pull || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn cloudstudio_刚刚下拉 || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git switch cloudstudio_刚刚下拉 || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git pull || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git switch wmstudy_cn || exit 0
+
+# 这里是 0_更新到最新版本 的便捷方式
+0: 0_更新到最新版本
+
 # 默认目标
 23_build_all : $(SUBDIRS)
 
@@ -46,7 +59,7 @@ show: 5_show
 	-@ [[ -f $$(which cloudstudio) ]] && git add -A || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git commit -m "进入cloudstudio首次提交" || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git checkout -b cloudstudio_运行中 || exit 0
-	-@bash ./02_setup_env.sh
+	-@bash ./ab02_setup_env.sh
 	-@make  23_build_all
 	-@clear
 	-@make help
@@ -68,6 +81,7 @@ install_lib_for_club:
 club: install_lib_for_club
 
 
+.PHONY: 0_更新到最新版本 0
 
 # 定义伪目标,防止 make 时没有指定目标而报错
 .PHONY: 23_build_all clean $(SUBDIRS) 5_show show setup 7_clean_all
@@ -80,6 +94,7 @@ club: install_lib_for_club
 # 	@echo "Makefile 帮助信息:"
 # 	@echo ""
 # 	@echo "可用的构建目标:"
+# 	@echo "  0_更新到最新版本            : 与git仓库同步最新内容(首先执行这里)"
 # 	@echo "  23_build_all              : 构建项目(默认) "
 # 	@echo "  11_install_lib_for_club   : 本目标只是在club教程中运行_快速安装构建需要用到的几个库"
 # 	@echo "  12_init_for_cloudstudio   : 本目标只是在cloudstudio工作空间中运行_只需要运行1次就可以了"
@@ -95,8 +110,10 @@ club: install_lib_for_club
 help:
 	@echo "Makefile 帮助信息:"
 	@echo ""
+	@echo "0_更新到最新版本"
+	@echo "    : 与git仓库同步最新内容(首先执行这里)"
 	@echo "23_build_all"
-	@echo "    : 构建项目(默认)"
+	@echo "    : 构建项目"
 	@echo "11_install_lib_for_club"
 	@echo "    : 本目标只是在club教程中运行"
 	@echo "      快速安装构建需要用到的几个库"

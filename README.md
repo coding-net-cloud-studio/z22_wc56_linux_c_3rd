@@ -12,6 +12,8 @@
 Makefile 帮助信息:
 
 可用的构建目标:
+  0_更新到最新版本
+    : 首先执行这里
   23_build_all
 	: 构建项目(默认)
   11_install_lib_for_club
