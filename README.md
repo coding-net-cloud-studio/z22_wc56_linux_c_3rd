@@ -2,7 +2,7 @@
 
 [图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171) [人民邮电出版社京东自营官方旗舰店 本书购买链接](https://item.jd.com/13078641.html)
 
-[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22151271316230144?channel=share&sharetype=Markdown)
+[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22154598037925888?channel=share&sharetype=Markdown)
 
 作者:**[英]Neil Matthew,[英]Richard Stones**
 
