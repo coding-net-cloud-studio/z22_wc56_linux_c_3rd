@@ -230,7 +230,7 @@ f27_38_install_some_vs_ext_quick(){
 	return 0
 }
 
-f23_install_some_software(){
+f30_install_some_software(){
 	if [[ -f $(which cloudstudio) ]]; then
 		apt update -y
 		DEBIAN_FRONTEND=noninteractive apt install -y \
@@ -297,7 +297,11 @@ f94_2828_30_main(){
 
 	if [[ -f $(which cloudstudio) ]]; then
 
-    f23_install_some_software
+    f20_linux_git_setting
+
+    # f27_38_install_some_vs_ext_quick
+
+    f30_install_some_software
 
     f36_install_gcc_10_versioin
 
