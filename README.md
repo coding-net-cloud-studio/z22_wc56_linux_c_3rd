@@ -1,4 +1,4 @@
-# Linux程序设计(第4版)-腾讯AI编程助手增加注释
+# Linux程序设计(第4版)-腾讯AI编程助手增加注释 [边学边练](https://cloudstudio.net/)
 
 [图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171) [人民邮电出版社京东自营官方旗舰店 本书购买链接](https://item.jd.com/13078641.html)
 
