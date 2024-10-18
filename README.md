@@ -2,7 +2,7 @@
 
 [图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171)
 
-[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22149988465598464?channel=share&sharetype=Markdown)
+[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22150691496734720?channel=share&sharetype=Markdown)
 
 作者:**[英]Neil Matthew,[英]Richard Stones**
 
@@ -12,20 +12,20 @@
 Makefile 帮助信息:
 
 可用的构建目标:
-  23_build_all  
+  23_build_all
 	: 构建项目(默认)
-  11_install_lib_for_club   
+  11_install_lib_for_club
 	: 本目标只是在club教程中运行
           快速安装构建需要用到的几个库
-  12_init_for_cloudstudio   
+  12_init_for_cloudstudio
 	: 本目标只是在cloudstudio工作空间中运行
 	  只需要运行1次就可以了
-  5_show  
+  5_show
 	: 通过git clean -xdf -n
           查看构建了哪些_可执行文件
-  7_clean_all   
+  7_clean_all
 	: 清理生成的文件
-  help  
+  help
 	: 显示此帮助信息
 
 ```
