@@ -18,6 +18,7 @@ default: help
 # 0_更新到最新版本
 0_更新到最新版本:
 	-@ [[ -f $$(which cloudstudio) ]] && git stash || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn wmstudy_cn           || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git switch wmstudy_cn || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git pull || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git switch cloudstudio_刚刚下拉 || exit 0
@@ -62,6 +63,9 @@ show: 5_show
 	-@ [[ -f $$(which cloudstudio) ]] && git add -A || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git commit -m "进入cloudstudio首次提交" || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git checkout -b cloudstudio_运行中 || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn cloudstudio_运行中    || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn cloudstudio_刚刚下拉  || exit 0
+	-@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn wmstudy_cn           || exit 0
 	-@bash ./ab02_setup_env.sh
 	-@make  23_build_all
 	-@clear
