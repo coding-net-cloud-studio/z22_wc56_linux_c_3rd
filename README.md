@@ -2,6 +2,8 @@
 
 [图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171)
 
+[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22149253753602048?channel=share&sharetype=Markdown)
+
 作者:**[英]Neil Matthew,[英]Richard Stones**
 
 译者:**陈健 宋健建**
