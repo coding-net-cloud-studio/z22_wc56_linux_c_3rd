@@ -236,6 +236,7 @@ f30_install_some_software(){
       apt update -y
       DEBIAN_FRONTEND=noninteractive apt install -y \
         iputils-ping \
+        sudo \
         make \
         lsof \
         net-tools \
@@ -255,7 +256,13 @@ f30_install_some_software(){
         duff \
         mlocate \
         pv \
-        tree
+        tree \
+        gdb \
+        gdbserver \
+        bison \
+        nasm \
+        bear \
+        strace
 
       # NOTE 执行完成安装任务以后_创建_锁文件
       echo "echo 已经初始化了本cloudstudio工作空间 $(date)" >> /usr/bin/wc56_cn32_cloudstudio_installed.sh
