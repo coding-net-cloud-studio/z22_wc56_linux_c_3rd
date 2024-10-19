@@ -66,7 +66,7 @@ show: 5_show
 	@# -@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn cloudstudio_运行中    || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn cloudstudio_刚刚下拉  || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git branch --set-upstream-to=origin/wmstudy_cn wmstudy_cn           || exit 0
-	-@bash ./ab02_setup_env.sh
+	-@bash ab10_wmscript_init_this.sh || exit 0
 	-@make  23_build_all
 	-@clear
 	-@make help
