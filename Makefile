@@ -59,7 +59,7 @@ show: 5_show
 	@# -@ [[ -f $$(which cloudstudio) ]] && git remote add     cnb    https://cnb.cool/8888/c/linux_c.git || exit 0
 	@# -@ [[ -f $$(which cloudstudio) ]] && git remote add     github https://github.com/coding-net-cloud-studio/linux_c.git || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git checkout -b cloudstudio_刚刚下拉 || exit 0
-	-@ touch README.md
+	-@ [[ -f $$(which cloudstudio) ]] && touch README.md
 	-@ [[ -f $$(which cloudstudio) ]] && git add -A || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git commit -m "进入cloudstudio首次提交" || exit 0
 	-@ [[ -f $$(which cloudstudio) ]] && git checkout -b cloudstudio_运行中 || exit 0
@@ -134,7 +134,7 @@ help:
 	@echo "     只需要运行1次就可以了"
 	@echo " 5_show"
 	@echo "   : 通过git clean -xdf -n"
-	@echo "   : 查看构建了哪些_可执行文件"
+	@echo "     查看构建了哪些_可执行文件"
 	@echo " 7_clean_all"
 	@echo "   : 清理生成的文件"
 	@echo " help"
