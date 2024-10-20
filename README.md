@@ -9,7 +9,8 @@
 译者:**陈健 宋健建**
 
 ```bash
-Makefile 帮助信息 v1170 :
+Makefile 帮助信息 v1170_id_8096 :
+提交id_v1290
 
 可用的构建目标:
   0_更新到最新版本
@@ -45,6 +46,8 @@ Makefile 帮助信息 v1170 :
 "我自学,我自讲" 侧重在:
 
     智谱ChatGLM3大模型,腾讯云HAI高性能计算平台上,如何与ollama相互配合与互动的模式下,实现该大模型的本地化部署,应用开发与微调.
+    
+    并将使用智谱AI的bigmodel.cn的各种大模型全家桶,创作"基于python语言开发的智能体".
 
 这里是本系列分享的第cb01个文章与cloudstudio应用:
 
@@ -944,4 +947,4 @@ Neil Matthew 和Richard Stones世界知名的Linux/UNIX专家,有数十年Linux/
 * 开本**16开**
 * 原书名**Beginning Linux Programming**
 * 原书号**9780470147627**
-* 2024年10月18日_v1220
+* 2024年10月20日_v1290
