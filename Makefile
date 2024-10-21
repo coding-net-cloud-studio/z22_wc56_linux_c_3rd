@@ -90,16 +90,16 @@ install_lib_for_club:
 # 快捷名称
 club: install_lib_for_club
 
-ab09_install_vscode_extensions:
+ab08_install_vscode_extensions:
 	-@clear
 	-@ [[ -f $$(which cloudstudio) ]] && bash ab10_wmscript_init_this.sh f27_38_install_some_vs_ext_quick || exit 0
 
 
-9_安装本仓库需要用的vscode扩展: ab09_install_vscode_extensions
+8_安装本仓库需要用的vscode扩展: ab08_install_vscode_extensions
 
-vscode: 9_安装本仓库需要用的vscode扩展
+vscode: 8_安装本仓库需要用的vscode扩展
 
-.PHONY: vscode 9_安装本仓库需要用的vscode扩展 ab09_install_vscode_extensions
+.PHONY: vscode 8_安装本仓库需要用的vscode扩展 ab08_install_vscode_extensions
 
 .PHONY: 0_更新到最新版本 0
 
@@ -147,7 +147,7 @@ help:
 	@echo "     查看构建了哪些_可执行文件"
 	@echo " 7_clean_all"
 	@echo "   : 清理生成的文件"
-	@echo " 9_安装本仓库需要用的vscode扩展"
+	@echo " 8_安装本仓库需要用的vscode扩展"
 	@echo "   : 安装本仓库需要用的vscode扩展"
 	@echo " help"
 	@echo "   : 显示此帮助信息"
