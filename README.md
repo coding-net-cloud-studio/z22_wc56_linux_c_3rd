@@ -2,15 +2,15 @@
 
 [图灵社区关于本书的介绍](https://www.ituring.com.cn/book/171) [人民邮电出版社京东自营官方旗舰店 本书购买链接](https://item.jd.com/13078641.html)
 
-[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22156577478148096?channel=share&sharetype=Markdown)
+[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/a/22215558653411328?channel=share&sharetype=Markdown)
 
 作者:**[英]Neil Matthew,[英]Richard Stones**
 
 译者:**陈健 宋健建**
 
 ```bash
-Makefile 帮助信息 v1170_id_8096 :
-提交id_v1360
+Makefile 帮助信息 v1360_id_1328 :
+提交id_v1370
 
 可用的构建目标:
   0_更新到最新版本
@@ -949,4 +949,4 @@ Neil Matthew 和Richard Stones世界知名的Linux/UNIX专家,有数十年Linux/
 * 开本**16开**
 * 原书名**Beginning Linux Programming**
 * 原书号**9780470147627**
-* 2024年10月21日_v1360
+* 2024年10月21日_v1370
