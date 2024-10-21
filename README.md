@@ -10,7 +10,7 @@
 
 ```bash
 Makefile 帮助信息 v1170_id_8096 :
-提交id_v1290
+提交id_v1360
 
 可用的构建目标:
   0_更新到最新版本
@@ -949,4 +949,4 @@ Neil Matthew 和Richard Stones世界知名的Linux/UNIX专家,有数十年Linux/
 * 开本**16开**
 * 原书名**Beginning Linux Programming**
 * 原书号**9780470147627**
-* 2024年10月20日_v1290
+* 2024年10月21日_v1360
